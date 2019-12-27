@@ -26,6 +26,8 @@ namespace Quantum.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ServiceRegistry.AddScopedServices(services);
+
             services.AddDbContext<QuantumDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -33,6 +35,10 @@ namespace Quantum.Web
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("IdentityConnection")));
+
+            //services.AddDbContext<IdentityDbContext>(options =>
+            //    options.UseOracle(
+            //        Configuration.GetConnectionString("IdentityConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
@@ -85,6 +91,16 @@ namespace Quantum.Web
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+                endpoints.MapAreaControllerRoute(
+                    name: "area",
+                    areaName: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                    name: "api",
+                    areaName: "areas",
+                    pattern: "api/{area:exists}/{controller=Home}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>

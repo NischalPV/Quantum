@@ -5,13 +5,13 @@ using System.Text;
 
 namespace Quantum.Core.Entities
 {
-    public class Organization : BaseEntityStripped<string>
+    public class Organization : BaseEntity<string>
     {
         public string Name { get; set; }
         public virtual List<OrganizationUser> OrganizationUsers { get; set; }
     }
 
-    public class OrganizationUser : BaseEntityStripped<int>
+    public class OrganizationUser : BaseEntity<int>
     {
         [ForeignKey(nameof(Organization))]
         public string OrganizationId { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Quantum.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,7 @@ namespace Quantum.Infrastructure.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<Product> Products { get; set; }
     }
 }

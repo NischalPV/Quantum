@@ -1,0 +1,65 @@
+<h1 id="tableLabel" class="display-4">Products</h1>
+
+<hr />
+
+<form #f="ngForm" *ngIf="!success" (ngSubmit)="post(productName.value, productHsnCode.value, productPrice.value, productDescription.value); productName.value=''; productHsnCode.value=''; productPrice.value=''; productDescription.value=''">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="name" class="sr-only">Name</label>
+        <input type="text" #productName class="form-control" placeholder="Product name" required autofocus data-val="true" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="name" class="sr-only">HSN Code</label>
+        <input type="text" #productHsnCode class="form-control" placeholder="HSN Code" required data-val="true" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="name" class="sr-only">Price</label>
+        <input type="number" step="any" #productPrice class="form-control" placeholder="Price" required data-val="true" />
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="form-group">
+        <label for="name" class="sr-only">Description</label>
+        <textarea type="text" #productDescription class="form-control" placeholder="Product description" required data-val="true"></textarea>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-primary" type="submit" [disabled]="!f.form.valid">Save</button>
+    </div>
+  </div>
+</form>
+
+<hr />
+<p *ngIf="!products"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products">
+  <thead>
+    <tr>
+      <th>S#</th>
+      <th>Name</th>
+      <th>HSN Code</th>
+      <th>Price</th>
+      <th>Created Date</th>
+      <th>Created By</th>
+      <th>Modified Date</th>
+      <th>Modified By</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i = index">
+      <td>{{ i+1 }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.hsnCode }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.createdDate | date: 'dd/MM/y hh:mm'}}</td>
+      <td>{{ product.createdBy }}</td>
+      <td>{{ product.modifiedDate }}</td>
+      <td>{{ product.modifiedBy }}</td>
+    </tr>
+  </tbody>
+</table>

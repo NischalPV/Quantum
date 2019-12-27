@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C6C8913-5FA5-408B-9BB3-1136294DE020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantum.Web", "Quantum.Web\Quantum.Web.csproj", "{274FE2A4-14A1-4AFC-9AB9-723249BD17C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantum.Web", "Quantum.Web\Quantum.Web.csproj", "{274FE2A4-14A1-4AFC-9AB9-723249BD17C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantum.Core", "Quantum.Core\Quantum.Core.csproj", "{0C1929A6-2CF7-4721-8FF1-D00EE887C6F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantum.Core", "Quantum.Core\Quantum.Core.csproj", "{0C1929A6-2CF7-4721-8FF1-D00EE887C6F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantum.Infrastructure", "Quantum.Infrastructure\Quantum.Infrastructure.csproj", "{DF81F5D6-F07C-4681-9973-51F1F90F1FD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantum.Infrastructure", "Quantum.Infrastructure\Quantum.Infrastructure.csproj", "{DF81F5D6-F07C-4681-9973-51F1F90F1FD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
